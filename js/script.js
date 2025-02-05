@@ -59,30 +59,38 @@ function updateLanguage() {
     document.getElementById('search-category').placeholder = t.placeholderSearchCategory;
     generateCalendarHeader();
     loadTasksForDate(new Date(lastSelectedDate || Date.now()));
-    document.getElementById('lang-btn').textContent = t.langBtn;
+    document.getElementById('lang-btn').value = t.langBtn;
 }
 
-document.getElementById('lang-btn').addEventListener('click', () => {
-    if (currentLanguage === 'ru') {
-        currentLanguage = 'en';
-    } else if (currentLanguage === 'en') {
-        currentLanguage = 'uk';
-    } else {
-        currentLanguage = 'ru';
-    }
-    updateLanguage();
-});
 
+document.getElementById('theme-btn').innerHTML = `<img src="img/light.svg" alt="Light" width="24">`;
 document.getElementById('theme-btn').addEventListener('click', () => {
     darkTheme = !darkTheme;
     if (darkTheme) {
         document.body.classList.add('dark');
-        document.getElementById('theme-btn').textContent = "🏙️";
+        document.getElementById('theme-btn').innerHTML = `<img src="img/dark.svg" alt="Dark" width="24">`;
     } else {
         document.body.classList.remove('dark');
-        document.getElementById('theme-btn').textContent = "🌃";
+        document.getElementById('theme-btn').innerHTML = `<img src="img/light.svg" alt="Light" width="24">`;
     }
 });
+
+document.getElementById('lang-btn').innerHTML = `<img src="img/ua.svg" alt="UA" width="24">`;
+document.getElementById('lang-btn').addEventListener('click', () => {
+    if (currentLanguage === 'uk') {
+        currentLanguage = 'ru';
+        document.getElementById('lang-btn').innerHTML = `<img src="img/ru.svg" alt="RU" width="24">`;
+    } else if (currentLanguage === 'ru') {
+        currentLanguage = 'en';
+        document.getElementById('lang-btn').innerHTML = `<img src="img/uk.svg" alt="EN" width="24">`;
+    } else {
+        currentLanguage = 'uk';
+        document.getElementById('lang-btn').innerHTML = `<img src="img/ua.svg" alt="UA" width="24">`;
+    }
+
+    updateLanguage();
+});
+
 
 function updateTime() {
     const timeElem = document.getElementById('time');
