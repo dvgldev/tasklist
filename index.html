@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="title">Task List</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/to-do-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/tasklist-logo-mini.png" type="image/x-icon">
 </head>
 
 <body>
     <header class="header">
         <div class="header-logo">
-            <img src="img/to-do-list-logo.png" alt="TO-DO LIST">
+            <img src="img/tasklist-logo.png" alt="TO-DO LIST">
             <div class="header-logo-text" id="header-logo-text">
                 <h1 id="header-logo-h1">Список</h1>
                 <p id="header-logo-p">завдань</p>
             </div>
         </div>
         <div class="controls">
-            <div class="time" id="time">00:00:00</div>
+            <div class="time">
+                <div id="time">00:00:00</div>
+            </div>
             <button id="theme-btn"><img src="img/light.svg" alt="light" width="24"></button>
             <button id="lang-btn"><img src="img/ua.svg" alt="UA" width="24"></button>
         </div>
@@ -31,6 +33,13 @@
                 <input type="text" id="task-title" placeholder="Название задачи" required>
                 <textarea id="task-desc" placeholder="Описание задачи" required></textarea>
                 <input type="text" id="task-category" placeholder="Категория (через запятую, необязательно)">
+                <div id="modal-category" class="modal-category">
+                    <div class="modal-category-content"> 
+                        <span class="modal-close">&times;</span>
+                        <h3>Доступные теги</h3>
+                        <ul id="tag-list"></ul>
+                    </div>
+                </div>
                 <input type="datetime-local" id="task-datetime" required>
                 <button type="submit" id="add-task-btn">Добавить</button>
             </form>

@@ -170,12 +170,68 @@ document.getElementById('task-form').addEventListener('submit', (e) => {
 });
 
 function getCategoryStyle(category) {
-    const mapping = {
-        "учеба": { bg: "#e0f7fa", border: "#00acc1", text: "#007c91" },
-        "жизнь": { bg: "#e8f5e9", border: "#43a047", text: "#2e7d32" },
-        "другое": { bg: "#fce4ec", border: "#d81b60", text: "#c2185b" }
+    const categories = {
+        study: ["учеба", "навчання", "study"],
+        life: ["жизнь", "життя", "life"],
+        notify: ["напоминание", "нагадування", "notification"],
+        other: ["другое", "інше", "other"]
     };
-    return mapping[category] || { bg: "#f0f0f0", border: "#ccc", text: "#333" };
+
+    const inputCategory = document.getElementById("task-category");
+    const modalCategory = document.getElementById("modal-category");
+    const closeBtn = document.querySelector(".modal-close");
+    const tagList = document.getElementById("tag-list");
+
+    inputCategory.addEventListener("dblclick", () => {
+        tagList.innerHTML = "";
+        Object.values(categories).forEach(group => {
+            group.forEach(tag => {
+                const li = document.createElement("li");
+                li.textContent = tag;
+                li.addEventListener("click", () => {
+                    let currentValue = inputCategory.value.trim();
+                    if (currentValue) {
+                        if (!currentValue.split(", ").includes(tag)) {
+                            inputCategory.value = currentValue + ", " + tag;
+                        }
+                    } else {
+                        inputCategory.value = tag;
+                    }
+                    modalCategory.style.display = "none";
+                });
+                tagList.appendChild(li);
+            });
+        });
+
+        modalCategory.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modalCategory.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modalCategory) {
+            modalCategory.style.display = "none";
+        }
+    });
+
+    const styles = {
+        study: { bg: "#e0f7fa", border: "#00acc1", text: "#007c91" },
+        life: { bg: "#e8f5e9", border: "#43a047", text: "#2e7d32" },
+        notify: { bg: "#fff3e0", border: "#f57c00", text: "#ef6c00" },
+        other: { bg: "#fce4ec", border: "#d81b60", text: "#c2185b" }
+    };
+
+    category = category.toLowerCase();
+
+    for (const key in categories) {
+        if (categories[key].includes(category)) {
+            return styles[key];
+        }
+    }
+
+    return { bg: "#f0f0f0", border: "#ccc", text: "#333" };
 }
 
 function loadTasksForDate(date) {
