@@ -177,6 +177,13 @@ function getCategoryStyle(category) {
         other: ["другое", "інше", "other"]
     };
 
+    const styles = {
+        study: { bg: "#e0f7fa", border: "#00acc1", text: "#007c91" },
+        life: { bg: "#e8f5e9", border: "#43a047", text: "#2e7d32" },
+        notify: { bg: "#fff3e0", border: "#f57c00", text: "#ef6c00" },
+        other: { bg: "#fce4ec", border: "#d81b60", text: "#c2185b" }
+    };
+
     const inputCategory = document.getElementById("task-category");
     const modalCategory = document.getElementById("modal-category");
     const closeBtn = document.querySelector(".modal-close");
@@ -215,13 +222,6 @@ function getCategoryStyle(category) {
             modalCategory.style.display = "none";
         }
     });
-
-    const styles = {
-        study: { bg: "#e0f7fa", border: "#00acc1", text: "#007c91" },
-        life: { bg: "#e8f5e9", border: "#43a047", text: "#2e7d32" },
-        notify: { bg: "#fff3e0", border: "#f57c00", text: "#ef6c00" },
-        other: { bg: "#fce4ec", border: "#d81b60", text: "#c2185b" }
-    };
 
     category = category.toLowerCase();
 
