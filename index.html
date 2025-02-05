@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="title">Task List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/to-do-logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <img src="img/to-do-list-logo.png" alt="TO-DO LIST">
+            <div class="header-logo-text" id="header-logo-text">
+                <h1 id="header-logo-h1">Список</h1>
+                <p id="header-logo-p">завдань</p>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="time" id="time">00:00:00</div>
+            <button id="theme-btn">🌃</button>
+            <button id="lang-btn">UA</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="left-panel">
+            <form id="task-form">
+                <h3 id="add-task-title"><b>Добавить задачу</b></h3>
+                <input type="text" id="task-title" placeholder="Название задачи" required>
+                <textarea id="task-desc" placeholder="Описание задачи" required></textarea>
+                <input type="text" id="task-category" placeholder="Категория (через запятую, необязательно)">
+                <input type="datetime-local" id="task-datetime" required>
+                <button type="submit" id="add-task-btn">Добавить</button>
+            </form>
+            <div class="calendar-container">
+                <div id="calendar-header"></div>
+                <div id="calendar"></div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="task-list-panel">
+                <div class="task-list-text">
+                    <h2 id="task-list-title">Задачи на сегодня</h2>
+                </div>
+                <div class="task-list-controls">
+                    <input type="text" id="search-category" placeholder="Поиск по категории">
+                    <select id="sort-select">
+                        <option value="asc">По дате (по возрастанию)</option>
+                        <option value="desc">По дате (по убыванию)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="task-list"></div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-close" class="modal-close">&times;</span>
+            <div id="modal-text" class="modal-text"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

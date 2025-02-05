@@ -1,0 +1,433 @@
+@import url(null.css);
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --bg-color: #f2f2f2;
+}
+
+body {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-color);
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    --bg-color: #333;
+    background-color: var(--bg-color);
+    color: #ddd;
+}
+
+input,
+select,
+textarea {
+    outline: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-logo, .header-logo a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+}
+
+.header-logo-text {
+    max-width: 64px;
+}
+
+#header-logo-text {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls button {
+    max-width: 60px;
+    height: 37px;
+    background-color: #005f99;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+#lang-btn {
+    font-size: 1em;
+}
+
+.time {
+    width: 96px;
+    height: 37px;
+    background-color: #005f99;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.controls button:hover {
+    background-color: #004f80;
+}
+
+body.dark .controls button:hover {
+    background-color: #008eed;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.left-panel {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+.left-panel h2 {
+    margin-top: 20px;
+}
+
+#task-list {
+    margin: 10px 0;
+}
+
+#task-form {
+    height: max-content;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+#task-form h3 {
+    margin: 0 0 10px;
+}
+
+#task-form input,
+#task-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#task-form textarea {
+    resize: vertical;
+    min-height: 200px;
+    max-height: max-content;
+}
+
+#task-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007acc;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.2s;
+}
+
+#task-form button:hover {
+    background-color: #008eed;
+}
+
+.task {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+}
+
+.task-title {
+    margin: 0 0 5px;
+}
+
+.task-desc {
+    margin: 0 0 5px;
+    cursor: pointer;
+    color: #007acc;
+    text-decoration: underline;
+}
+
+.task-info {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.task-category {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 4px;
+    font-size: 0.8em;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+body.dark .task-info {
+    color: #ccc;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.right-panel {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-list-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task-list-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.task-list-controls input {
+    max-width: 150px;
+}
+
+.task-list-controls input,
+.task-list-controls select {
+    height: 36px;
+}
+
+#search-category,
+#sort-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #656565;
+}
+
+.calendar-container {
+    width: 100%;
+    height: 50%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+#calendar-header {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #007acc;
+    text-transform: capitalize;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    flex: 1;
+}
+
+.calendar-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #55555559;
+    font-size: 1.3em;
+}
+
+.calendar-cell:hover {
+    background-color: #e6f7ff;
+}
+
+.calendar-cell.today {
+    background-color: #42bc4c !important;
+    color: #fff;
+}
+
+.calendar-cell.active {
+    background-color: #007acc;
+    color: #fff;
+    font-weight: 700;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 4px;
+    position: relative;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.modal-text {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+body.dark .header {
+    background-color: #444;
+    border-bottom: 1px solid #939393;
+}
+
+body.dark #task-form,
+body.dark #task-form input,
+body.dark #task-form textarea,
+body.dark .calendar-container,
+body.dark #search-category,
+body.dark #sort-select {
+    background-color: #444;
+    color: #ddd;
+    border-color: #777;
+}
+
+body.dark ::placeholder {
+    color: #ddd;
+}
+
+body.dark .left-panel,
+body.dark .right-panel,
+body.dark .modal-content {
+    background-color: #555;
+    color: #ddd;
+    border-color: #939393;
+}
+
+body.dark .task {
+    background-color: #666;
+    border-color: #777;
+}
+
+body.dark .task-desc {
+    color: #9ad0ff;
+}
+
+body.dark .calendar-cell {
+    border: 1px solid #898989;
+}
+
+body.dark .calendar-cell:hover {
+    background-color: #007acc6c;
+}
+
+body.dark .calendar-cell.active {
+    background-color: #007acc;
+    color: #fff;
+    font-weight: 700;
+}
+
+.delete-btn {
+    background-color: #fff;
+}
+
+body.dark .delete-btn {
+    background-color: inherit;
+}
+
+.delete-btn svg circle {
+    fill: red;
+    stroke: red;
+    transition: fill 0.3s;
+}
+
+.delete-btn svg line {
+    stroke: white;
+    transition: stroke 0.3s;
+}
+
+.delete-btn:hover svg circle {
+    fill: #fff;
+}
+
+body.dark .delete-btn:hover svg circle {
+    fill: #898989;
+}
+
+.delete-btn:hover svg line {
+    stroke: #d91818;
+}
